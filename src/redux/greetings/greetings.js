@@ -1,6 +1,10 @@
 const GET_GREETINGS_SUCCESS = 'HELLO_REACT_FRONT_END/GREETINGS/GET_GREETINGS_SUCCESS';
 
-const reducer = (state = {}, action = {}) => {
+const initialState = {
+  message: 'Wait one second',
+}
+
+const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case GET_GREETINGS_SUCCESS:
       return action.payload;

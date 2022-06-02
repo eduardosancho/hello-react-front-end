@@ -9,22 +9,22 @@ const Greeting = () => {
   const dispatch = useDispatch();
   const greeting = useSelector(selectGreeting);
 
+  const fetchData = async () => {
+    const greetingsFromAPI = await getGreetingsFromAPI();
+    dispatch(getGreetings(greetingsFromAPI));
+  }
+
   useEffect(() => {
-    const fetchData = async () => {
-      const greetingsFromAPI = await getGreetingsFromAPI();
-      dispatch(getGreetings(greetingsFromAPI));
-    }
-    fetchData();
+    setTimeout(() => fetchData(), 1000);
   }, []);
 
 
   return (
     <>
       <p><em>Your fetched greeting:</em></p>
-      <React.Fragment>
         <h1>{greeting.message}</h1>
         <br />
-      </React.Fragment>
+        <p><strong>Refresh the page to get a new greeting!</strong></p>
     </>
   )
 }
