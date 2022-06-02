@@ -17,7 +17,10 @@ const getGreetings = (payload) => ({
 const getGreetingsFromAPI = async () => {
   return fetch('http://127.0.0.1:3001/api/v1/greetings')
     .then(response => response.json())
+    .then(json => json.greetings[0])
 }
+
+export const selectGreeting = (state) => state.greetingsReducer;
 
 export default reducer;
 export { getGreetingsFromAPI, getGreetings, };
