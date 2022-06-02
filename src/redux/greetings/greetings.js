@@ -2,7 +2,7 @@ const GET_GREETINGS_SUCCESS = 'HELLO_REACT_FRONT_END/GREETINGS/GET_GREETINGS_SUC
 
 const initialState = {
   message: 'Wait one second',
-}
+};
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
@@ -18,13 +18,11 @@ const getGreetings = (payload) => ({
   payload,
 });
 
-const getGreetingsFromAPI = async () => {
-  return fetch('http://127.0.0.1:3001/api/v1/greetings')
-    .then(response => response.json())
-    .then(json => json.greetings[0])
-}
+const getGreetingsFromAPI = async () => fetch('http://127.0.0.1:3001/api/v1/greetings')
+  .then((response) => response.json())
+  .then((json) => json.greetings[0]);
 
 export const selectGreeting = (state) => state.greetingsReducer;
 
 export default reducer;
-export { getGreetingsFromAPI, getGreetings, };
+export { getGreetingsFromAPI, getGreetings };
