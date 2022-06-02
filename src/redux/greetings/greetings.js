@@ -18,7 +18,7 @@ const getGreetings = (payload) => ({
   payload,
 });
 
-const getGreetingsFromAPI = async () => fetch('http://127.0.0.1:3001/api/v1/greetings')
+const getGreetingsFromAPI = async () => fetch('https://desolate-tundra-61515.herokuapp.com/api/v1/greetings')
   .then((response) => response.json())
   .then((json) => json.greetings[0]);
 
